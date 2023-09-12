@@ -13,7 +13,7 @@ export const EmployeeList = () => {
 
     return (
         <div>
-            <input type='text' placeholder='Search' className='search' onChange={e => setQuery(e.target.value)}></input>
+            <input className="form-label mt-2" type='text' placeholder='Search' className='search' onChange={e => setQuery(e.target.value)}></input>
             <h1 className="my-5 text-center">LIST STUDENT</h1>
 
             {

@@ -4,12 +4,14 @@ import { useForm } from './../hooks/useForm';
 import { useState, useEffect } from 'react';
 import { editEmployee } from './../service/localstorage';
 import uuid from 'react-uuid' ;
+import isEmpty from "validator/lib/isEmpty"
 
 export const EmployeeForm = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [showAlert, setshowAlert] = useState(false);
-    const { inputValues, handleInputChange, resetForm, setForm } = useForm({
+    const [inputError, setInputError] = useState({}) ;
+    const { inputValues, handleInputChange, resetForm, setForm, validateAll } = useForm({
         name: '',
         email: '',
         address: '',
@@ -31,7 +33,29 @@ export const EmployeeForm = () => {
         setTimeout(() => {
             setshowAlert(false);
         }, 2000);
+        if(!inputValues.name){ 
+            alert('Please input your name') ;
+            return ;
+        };
+
+        if(!inputValues.email){ 
+            alert('Please input your mail') ;
+            return ;
+        };
+
+        if(!inputValues.address){ 
+            alert('Please input your address') ;
+            return ;
+        };
+
+        if(!inputValues.phone){ 
+            alert('Please input your phone number') ;
+            return ;
+        };
     };
+
+
+
 
     return (
         <div>
@@ -68,6 +92,8 @@ export const EmployeeForm = () => {
                             id="inputValid"
                         />
                     </div>
+
+            
 
 
                     <div className="form-group">
