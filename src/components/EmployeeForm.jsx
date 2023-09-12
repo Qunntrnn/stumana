@@ -4,7 +4,6 @@ import { useForm } from './../hooks/useForm';
 import { useState, useEffect } from 'react';
 import { editEmployee } from './../service/localstorage';
 import uuid from 'react-uuid' ;
-import isEmpty from "validator/lib/isEmpty"
 
 export const EmployeeForm = () => {
     const navigate = useNavigate();
